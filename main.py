@@ -20,13 +20,12 @@ if __name__ == '__main__':
     start_time_multi = time.time()
 
     for length in lengths_list:
-        intervals = f.generate_intervals(0, 9000, 500)
+        intervals = f.generate_intervals(0, 9000, length)
 
         graph_summary_df = f.summarize_graphs_in_parallel_2(file_pth=f'{file_pth}/eeg_eyes_numpy_arrays_2.npy',
                                                             intervals=intervals,
                                                             connectivity_features_fun=connectivity_features_fun)
         end_time_multi = time.time()
         print(end_time_multi - start_time_multi)
-        print(graph_summary_df.head())
         graph_summary_df.to_csv(f'{file_pth}/non_overlapping_{length}_df.csv')
 
