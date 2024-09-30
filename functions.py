@@ -100,7 +100,7 @@ def _normalize_trial(trial):
     trial_avg = np.mean(trial)
     trial_std = np.std(trial)
 
-    trial = (trial - trial_avg) / trial_std
+    trial = (trial - trial_avg) / trial_std + 1e-10
     return trial
 
 def min_max(trial):
